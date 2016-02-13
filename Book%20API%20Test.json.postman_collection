@@ -1,0 +1,29 @@
+{
+	"id": "b9c8ec4f-0e40-d7b5-f4e8-c7084ccc5265",
+	"name": "Book API Test",
+	"requests": [
+		{
+			"id": "a8eb2da5-fd5a-653a-4f04-8d28aced5f74",
+			"headers": "",
+			"url": "https://www.googleapis.com/books/v1/volumes?q=turing",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "var jsonData = JSON.parse(responseBody);\r\nvar title = jsonData.items[0].volumeInfo.title;\r\nconsole.log(\"title \" + title);\r\nvar patt = /turing/i;\r\nvar res = patt.test(title);\r\nconsole.log(res);\r\ntests[\"book title1\"] = res === true;\r\ntests[\"book title\"] = responseBody.has(\"turing\");\r\ntests[\"total items\"] = jsonData.totalItems > 1;\r\ntests[\"Status code is 200\"] = responseCode.code === 200;\r\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1455390901097,
+			"name": "bookapitest",
+			"description": "",
+			"collectionId": "b9c8ec4f-0e40-d7b5-f4e8-c7084ccc5265",
+			"responses": []
+		}
+	],
+	"order": [
+		"a8eb2da5-fd5a-653a-4f04-8d28aced5f74"
+	],
+	"timestamp": 1455390869112
+}
